@@ -1,0 +1,47 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+/storage/logs/*
+!/storage/logs/.gitkeep
+
+# Cache
+/storage/cache/*
+!/storage/cache/.gitkeep
+
+# Sessions
+/storage/sessions/*
+!/storage/sessions/.gitkeep
+
+# Uploads (user content)
+/public/uploads/*
+!/public/uploads/.gitkeep
+
+# Compiled assets (if using build process)
+/public/assets/css/app.css
+/public/assets/css/app.css.map
+
+# Testing
+/coverage/
+.phpunit.result.cache
+
+# Misc
+*.log
+*.sql.gz
