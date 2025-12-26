@@ -72,6 +72,7 @@ Detailed specifications are in `.specify/specs/`. Each feature has:
 5. **Payments** (005) - PayPal integration for listing fees and subscriptions
 6. **Alerts & Notifications** (006) - Property alerts, email notifications
 7. **Admin Dashboard** (007) - Platform management interface
+8. **Property Scraping Agent** (008) - AI-powered property data extraction
 
 ## Business Model
 
@@ -152,6 +153,11 @@ MAIL_USER=
 MAIL_PASS=
 MAIL_FROM=noreply@renoradar.com
 
+# Claude API (for property scraping agent)
+ANTHROPIC_API_KEY=
+CLAUDE_MODEL=claude-sonnet-4-20250514
+SCRAPING_SYSTEM_USER_ID=1
+
 # App
 APP_URL=http://localhost:8000
 APP_ENV=development
@@ -192,3 +198,15 @@ APP_DEBUG=true
 - `config/routes.php` - All application routes
 - `src/Core/Application.php` - Main bootstrap
 - `config/paypal.php` - Payment configuration
+- `prompts/property-scraper.txt` - AI agent prompt for property extraction
+
+## Property Scraping Agent
+
+The scraping agent uses Claude to extract structured property data from HTML listings. Key capabilities:
+
+- **Data Extraction**: Address, price, bedrooms, bathrooms, description, images
+- **Status Classification**: For sale, under offer, sold STC, auction, sold, withdrawn
+- **Renovation Analysis**: Determines if property needs work with confidence scoring
+- **Condition Types**: total-renovation, structural-issues, needs-modernisation, cosmetic-updates, good-condition
+
+The agent prompt is stored in `prompts/property-scraper.txt` for easy maintenance.
